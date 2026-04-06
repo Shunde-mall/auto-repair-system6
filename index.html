@@ -1,0 +1,796 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="description" content="汽车维修厂日常管理系统 - 智能维修管理">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AutoCare">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>汽车维修厂管理系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="app-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" class="gear-icon">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="4"/>
+                        <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                        <g class="gear-teeth">
+                            <rect x="46" y="5" width="8" height="15" rx="2"/>
+                            <rect x="46" y="80" width="8" height="15" rx="2"/>
+                            <rect x="5" y="46" width="15" height="8" rx="2"/>
+                            <rect x="80" y="46" width="15" height="8" rx="2"/>
+                            <rect x="15" y="15" width="8" height="15" rx="2" transform="rotate(45 19 22.5)"/>
+                            <rect x="77" y="70" width="8" height="15" rx="2" transform="rotate(45 81 77.5)"/>
+                            <rect x="77" y="15" width="8" height="15" rx="2" transform="rotate(-45 81 22.5)"/>
+                            <rect x="15" y="70" width="8" height="15" rx="2" transform="rotate(-45 19 77.5)"/>
+                        </g>
+                    </svg>
+                </div>
+                <h1 class="logo-text">AUTO<span>CARE</span></h1>
+                <p class="logo-subtitle">智能维修管理系统</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-page="dashboard">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                    <span>控制台</span>
+                </a>
+                <a href="#" class="nav-item" data-page="orders">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                    </svg>
+                    <span>维修工单</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="#" class="nav-item" data-page="customers">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>客户管理</span>
+                </a>
+                <a href="#" class="nav-item" data-page="inventory">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    <span>配件库存</span>
+                    <span class="badge warning">3</span>
+                </a>
+                <a href="#" class="nav-item" data-page="finance">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <span>财务管理</span>
+                </a>
+                <a href="#" class="nav-item" data-page="employees">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>员工管理</span>
+                </a>
+                <a href="#" class="nav-item" data-page="reports">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"/>
+                        <line x1="12" y1="20" x2="12" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="14"/>
+                    </svg>
+                    <span>数据报表</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <div class="status-indicator online"></div>
+                    <span>系统运行正常</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部栏 -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <input type="text" placeholder="搜索工单、客户、车辆..." class="search-input">
+                    <kbd class="search-shortcut">Ctrl+K</kbd>
+                </div>
+                
+                <div class="top-bar-actions">
+                    <button class="action-btn notification-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    
+                    <button class="action-btn quick-add" id="quickAddBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"/>
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                        </svg>
+                        <span>新建工单</span>
+                    </button>
+                    
+                    <div class="user-profile">
+                        <div class="user-avatar">管</div>
+                        <div class="user-info">
+                            <span class="user-name">管理员</span>
+                            <span class="user-role">系统管理员</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 页面内容区 -->
+            <div class="page-content" id="pageContent">
+                <!-- 控制台页面 -->
+                <div class="page active" id="dashboardPage">
+                    <div class="page-header">
+                        <h2 class="page-title">控制台</h2>
+                        <p class="page-subtitle">2026年4月6日 星期一 | 系统概览</p>
+                    </div>
+                    
+                    <!-- 统计卡片 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">今日工单</span>
+                                <span class="stat-value">12</span>
+                                <span class="stat-change positive">+3 较昨日</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">今日收入</span>
+                                <span class="stat-value">¥8,560</span>
+                                <span class="stat-change positive">+12.5%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">进行中工单</span>
+                                <span class="stat-value">5</span>
+                                <span class="stat-change">平均耗时2.3h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">本月新客户</span>
+                                <span class="stat-value">28</span>
+                                <span class="stat-change positive">+8 较上月</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 内容网格 -->
+                    <div class="content-grid">
+                        <!-- 今日工单列表 -->
+                        <div class="card orders-card">
+                            <div class="card-header">
+                                <h3 class="card-title">今日工单</h3>
+                                <a href="#" class="card-link">查看全部 →</a>
+                            </div>
+                            <div class="order-list">
+                                <div class="order-item urgent">
+                                    <div class="order-status"></div>
+                                    <div class="order-info">
+                                        <span class="order-id">#WO-2026-0406</span>
+                                        <span class="order-customer">张先生 - 粤B·88888</span>
+                                    </div>
+                                    <div class="order-detail">
+                                        <span class="order-type">发动机维修</span>
+                                        <span class="order-time">进行中 · 1h 23m</span>
+                                    </div>
+                                    <div class="order-tech">技师: 王师傅</div>
+                                </div>
+                                
+                                <div class="order-item">
+                                    <div class="order-status"></div>
+                                    <div class="order-info">
+                                        <span class="order-id">#WO-2026-0405</span>
+                                        <span class="order-customer">李女士 - 粤A·12345</span>
+                                    </div>
+                                    <div class="order-detail">
+                                        <span class="order-type">更换刹车片</span>
+                                        <span class="order-time">已完成</span>
+                                    </div>
+                                    <div class="order-tech">技师: 陈师傅</div>
+                                </div>
+                                
+                                <div class="order-item">
+                                    <div class="order-status pending"></div>
+                                    <div class="order-info">
+                                        <span class="order-id">#WO-2026-0404</span>
+                                        <span class="order-customer">王先生 - 粤B·66666</span>
+                                    </div>
+                                    <div class="order-detail">
+                                        <span class="order-type">保养套餐</span>
+                                        <span class="order-time">等待配件</span>
+                                    </div>
+                                    <div class="order-tech">技师: 刘师傅</div>
+                                </div>
+                                
+                                <div class="order-item">
+                                    <div class="order-status"></div>
+                                    <div class="order-info">
+                                        <span class="order-id">#WO-2026-0403</span>
+                                        <span class="order-customer">赵女士 - 粤C·99999</span>
+                                    </div>
+                                    <div class="order-detail">
+                                        <span class="order-type">四轮定位</span>
+                                        <span class="order-time">已完成</span>
+                                    </div>
+                                    <div class="order-tech">技师: 张师傅</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 库存预警 -->
+                        <div class="card inventory-card">
+                            <div class="card-header">
+                                <h3 class="card-title">库存预警</h3>
+                                <span class="badge warning">3项</span>
+                            </div>
+                            <div class="inventory-warnings">
+                                <div class="warning-item critical">
+                                    <div class="warning-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                            <line x1="12" y1="9" x2="12" y2="13"/>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                        </svg>
+                                    </div>
+                                    <div class="warning-content">
+                                        <span class="warning-title">机油 5W-40</span>
+                                        <span class="warning-detail">库存: 2瓶 | 安全库存: 10瓶</span>
+                                    </div>
+                                    <button class="warning-action">采购</button>
+                                </div>
+                                
+                                <div class="warning-item">
+                                    <div class="warning-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </div>
+                                    <div class="warning-content">
+                                        <span class="warning-title">刹车片 (前)</span>
+                                        <span class="warning-detail">库存: 3套 | 安全库存: 5套</span>
+                                    </div>
+                                    <button class="warning-action">采购</button>
+                                </div>
+                                
+                                <div class="warning-item">
+                                    <div class="warning-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="12" y1="8" x2="12" y2="12"/>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                        </svg>
+                                    </div>
+                                    <div class="warning-content">
+                                        <span class="warning-title">空气滤芯</span>
+                                        <span class="warning-detail">库存: 4个 | 安全库存: 8个</span>
+                                    </div>
+                                    <button class="warning-action">采购</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 收入趋势 -->
+                        <div class="card chart-card">
+                            <div class="card-header">
+                                <h3 class="card-title">本周收入趋势</h3>
+                                <div class="chart-filters">
+                                    <button class="filter-btn active">周</button>
+                                    <button class="filter-btn">月</button>
+                                    <button class="filter-btn">年</button>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="chart-bars">
+                                    <div class="chart-bar" style="--height: 60%;" data-value="¥6,200">
+                                        <span class="bar-label">周一</span>
+                                    </div>
+                                    <div class="chart-bar" style="--height: 80%;" data-value="¥8,560">
+                                        <span class="bar-label">周二</span>
+                                    </div>
+                                    <div class="chart-bar" style="--height: 45%;" data-value="¥4,800">
+                                        <span class="bar-label">周三</span>
+                                    </div>
+                                    <div class="chart-bar" style="--height: 70%;" data-value="¥7,200">
+                                        <span class="bar-label">周四</span>
+                                    </div>
+                                    <div class="chart-bar" style="--height: 90%;" data-value="¥9,100">
+                                        <span class="bar-label">周五</span>
+                                    </div>
+                                    <div class="chart-bar active" style="--height: 75%;" data-value="¥7,800">
+                                        <span class="bar-label">周六</span>
+                                    </div>
+                                    <div class="chart-bar" style="--height: 30%;" data-value="¥3,200">
+                                        <span class="bar-label">周日</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 技师状态 -->
+                        <div class="card technicians-card">
+                            <div class="card-header">
+                                <h3 class="card-title">技师状态</h3>
+                                <span class="online-count">4 在岗</span>
+                            </div>
+                            <div class="technician-list">
+                                <div class="technician-item">
+                                    <div class="tech-avatar">王</div>
+                                    <div class="tech-info">
+                                        <span class="tech-name">王师傅</span>
+                                        <span class="tech-specialty">高级技师 · 发动机专家</span>
+                                    </div>
+                                    <div class="tech-status busy">维修中</div>
+                                </div>
+                                
+                                <div class="technician-item">
+                                    <div class="tech-avatar">陈</div>
+                                    <div class="tech-info">
+                                        <span class="tech-name">陈师傅</span>
+                                        <span class="tech-specialty">中级技师 · 刹车系统</span>
+                                    </div>
+                                    <div class="tech-status available">空闲</div>
+                                </div>
+                                
+                                <div class="technician-item">
+                                    <div class="tech-avatar">刘</div>
+                                    <div class="tech-info">
+                                        <span class="tech-name">刘师傅</span>
+                                        <span class="tech-specialty">中级技师 · 保养专家</span>
+                                    </div>
+                                    <div class="tech-status busy">维修中</div>
+                                </div>
+                                
+                                <div class="technician-item">
+                                    <div class="tech-avatar">张</div>
+                                    <div class="tech-info">
+                                        <span class="tech-name">张师傅</span>
+                                        <span class="tech-specialty">初级技师 · 轮胎服务</span>
+                                    </div>
+                                    <div class="tech-status available">空闲</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 工单管理页面 -->
+                <div class="page" id="ordersPage">
+                    <div class="page-header">
+                        <h2 class="page-title">维修工单</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-outline">导出</button>
+                            <button class="btn btn-primary" id="newOrderBtn">+ 新建工单</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 筛选栏 -->
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>全部状态</option>
+                                <option>待处理</option>
+                                <option>进行中</option>
+                                <option>已完成</option>
+                                <option>已结算</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>全部技师</option>
+                                <option>王师傅</option>
+                                <option>陈师傅</option>
+                                <option>刘师傅</option>
+                                <option>张师傅</option>
+                            </select>
+                            <input type="date" class="filter-date" value="2026-04-06">
+                        </div>
+                        <div class="filter-search">
+                            <input type="text" placeholder="搜索工单号、客户、车牌..." class="filter-input">
+                        </div>
+                    </div>
+                    
+                    <!-- 工单表格 -->
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>工单号</th>
+                                    <th>客户信息</th>
+                                    <th>车辆信息</th>
+                                    <th>维修项目</th>
+                                    <th>技师</th>
+                                    <th>状态</th>
+                                    <th>金额</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- 数据由JS渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- 分页 -->
+                    <div class="pagination">
+                        <span class="pagination-info">显示 1-10 共 45 条</span>
+                        <div class="pagination-btns">
+                            <button class="pagination-btn" disabled>上一页</button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">...</button>
+                            <button class="pagination-btn">5</button>
+                            <button class="pagination-btn">下一页</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 客户管理页面 -->
+                <div class="page" id="customersPage">
+                    <div class="page-header">
+                        <h2 class="page-title">客户管理</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-outline">导出</button>
+                            <button class="btn btn-primary" id="newCustomerBtn">+ 新增客户</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>全部客户</option>
+                                <option>VIP客户</option>
+                                <option>普通客户</option>
+                            </select>
+                            <input type="text" placeholder="搜索客户姓名、电话..." class="filter-input">
+                        </div>
+                    </div>
+                    
+                    <div class="customers-grid" id="customersGrid">
+                        <!-- 客户卡片由JS渲染 -->
+                    </div>
+                </div>
+
+                <!-- 配件库存页面 -->
+                <div class="page" id="inventoryPage">
+                    <div class="page-header">
+                        <h2 class="page-title">配件库存</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-outline">导出</button>
+                            <button class="btn btn-primary" id="newPartBtn">+ 新增配件</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <select class="filter-select">
+                                <option>全部分类</option>
+                                <option>机油</option>
+                                <option>刹车系统</option>
+                                <option>滤芯</option>
+                                <option>轮胎</option>
+                                <option>电瓶</option>
+                            </select>
+                            <select class="filter-select">
+                                <option>全部状态</option>
+                                <option>库存充足</option>
+                                <option>库存偏低</option>
+                                <option>库存预警</option>
+                            </select>
+                        </div>
+                        <div class="filter-search">
+                            <input type="text" placeholder="搜索配件名称、编号..." class="filter-input">
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>配件编号</th>
+                                    <th>配件名称</th>
+                                    <th>分类</th>
+                                    <th>库存数量</th>
+                                    <th>安全库存</th>
+                                    <th>单价</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTableBody">
+                                <!-- 数据由JS渲染 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 财务管理页面 -->
+                <div class="page" id="financePage">
+                    <div class="page-header">
+                        <h2 class="page-title">财务管理</h2>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">本月收入</span>
+                                <span class="stat-value">¥156,800</span>
+                                <span class="stat-change positive">+18.5%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon red">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+                                    <polyline points="17 18 23 18 23 12"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">本月支出</span>
+                                <span class="stat-value">¥68,500</span>
+                                <span class="stat-change negative">+5.2%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">本月利润</span>
+                                <span class="stat-value">¥88,300</span>
+                                <span class="stat-change positive">+28.3%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">待收款</span>
+                                <span class="stat-value">¥12,600</span>
+                                <span class="stat-change">3笔未结算</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="card chart-card wide">
+                            <div class="card-header">
+                                <h3 class="card-title">收支趋势</h3>
+                                <div class="chart-legend">
+                                    <span class="legend-item income">收入</span>
+                                    <span class="legend-item expense">支出</span>
+                                    <span class="legend-item profit">利润</span>
+                                </div>
+                            </div>
+                            <div class="chart-container">
+                                <div class="line-chart" id="financeChart">
+                                    <!-- 图表由JS渲染 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 员工管理页面 -->
+                <div class="page" id="employeesPage">
+                    <div class="page-header">
+                        <h2 class="page-title">员工管理</h2>
+                        <div class="page-actions">
+                            <button class="btn btn-primary" id="newEmployeeBtn">+ 新增员工</button>
+                        </div>
+                    </div>
+                    
+                    <div class="employees-grid" id="employeesGrid">
+                        <!-- 员工卡片由JS渲染 -->
+                    </div>
+                </div>
+
+                <!-- 数据报表页面 -->
+                <div class="page" id="reportsPage">
+                    <div class="page-header">
+                        <h2 class="page-title">数据报表</h2>
+                        <div class="page-actions">
+                            <select class="filter-select">
+                                <option>本月</option>
+                                <option>上月</option>
+                                <option>近三月</option>
+                                <option>近半年</option>
+                                <option>本年度</option>
+                            </select>
+                            <button class="btn btn-outline">导出报表</button>
+                        </div>
+                    </div>
+                    
+                    <div class="report-cards">
+                        <div class="report-card">
+                            <h3 class="report-title">营业报表</h3>
+                            <div class="report-preview">
+                                <div class="report-stat">
+                                    <span class="report-value">¥156,800</span>
+                                    <span class="report-label">总营业额</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">86</span>
+                                    <span class="report-label">完成工单</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">¥1,823</span>
+                                    <span class="report-label">客单价</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-block">查看详细</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <h3 class="report-title">维修统计</h3>
+                            <div class="report-preview">
+                                <div class="report-stat">
+                                    <span class="report-value">32</span>
+                                    <span class="report-label">常规保养</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">18</span>
+                                    <span class="report-label">故障维修</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">36</span>
+                                    <span class="report-label">配件更换</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-block">查看详细</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <h3 class="report-title">客户分析</h3>
+                            <div class="report-preview">
+                                <div class="report-stat">
+                                    <span class="report-value">28</span>
+                                    <span class="report-label">新增客户</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">156</span>
+                                    <span class="report-label">回访客户</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">92%</span>
+                                    <span class="report-label">满意度</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-block">查看详细</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <h3 class="report-title">技师绩效</h3>
+                            <div class="report-preview">
+                                <div class="report-stat">
+                                    <span class="report-value">4.8</span>
+                                    <span class="report-label">平均评分</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">21.5</span>
+                                    <span class="report-label">平均工单</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="report-value">2.1h</span>
+                                    <span class="report-label">平均耗时</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-block
+<script>
+    // PWA 注册
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', async () => {
+            try {
+                const registration = await navigator.serviceWorker.register('sw.js');
+                console.log('SW registered:', registration.scope);
+                
+                // 检查更新
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // 有新版本可用
+                            if (confirm('有新版本可用，是否更新？')) {
+                                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                location.reload();
+                            }
+                        }
+                    });
+                });
+            } catch (error) {
+                console.log('SW registration failed:', error);
+            }
+        });
+    }
+    
+    // 检测是否以PWA模式运行
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || 
+                  window.navigator.standalone === true;
+    if (isPWA) {
+        document.body.classList.add('pwa-mode');
+    }
+</script>
+</body>
+</html>

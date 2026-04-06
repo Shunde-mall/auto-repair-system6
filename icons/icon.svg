@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e14"/>
+      <stop offset="100%" style="stop-color:#1a2028"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#00a8cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <g transform="translate(256, 256)">
+    <circle r="80" fill="none" stroke="url(#accent)" stroke-width="20"/>
+    <circle r="30" fill="url(#accent)"/>
+    <g fill="url(#accent)">
+      <rect x="-15" y="-110" width="30" height="50" rx="8"/>
+      <rect x="-15" y="60" width="30" height="50" rx="8"/>
+      <rect x="-110" y="-15" width="50" height="30" rx="8"/>
+      <rect x="60" y="-15" width="50" height="30" rx="8"/>
+      <rect x="-78" y="-78" width="50" height="30" rx="8" transform="rotate(45)"/>
+      <rect x="28" y="48" width="50" height="30" rx="8" transform="rotate(45)"/>
+      <rect x="28" y="-78" width="50" height="30" rx="8" transform="rotate(-45)"/>
+      <rect x="-78" y="48" width="50" height="30" rx="8" transform="rotate(-45)"/>
+    </g>
+  </g>
+  <text x="256" y="420" text-anchor="middle" font-family="Arial" font-size="64" font-weight="bold" fill="#00d4ff">AUTO</text>
+</svg>

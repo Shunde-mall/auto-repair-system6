@@ -1,0 +1,26 @@
+{
+    "name": "汽车维修管理系统",
+    "short_name": "AutoCare",
+    "description": "汽车维修厂日常管理系统 - PWA版本",
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#0a0e14",
+    "theme_color": "#00d4ff",
+    "icons": [
+        {
+            "src": "icons/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any"
+        },
+        {
+            "src": "icons/icon.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "maskable"
+        }
+    ],
+    "categories": ["business", "productivity"],
+    "prefer_related_applications": false
+}
